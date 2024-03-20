@@ -11,9 +11,7 @@
 % what: personal writing
 
 %% Description ------------------------------------------------------------
-% Determine the temporal derivative of B and E
-% Called by:
-%   - webdriver.m
+
 % Inputs:
 %   - X: [B;E]
 %   - Btmin: Minimum biomasses (target) for fishing to be open
