@@ -2,7 +2,7 @@
 
 %% Previous authors -------------------------------------------------------
 % Program by: Rosalyn Rael
-% Modified by Barbara Bauer
+% Modified by Paul Glaum
 
 %% Last update ------------------------------------------------------------
 % when: 7-22-2022
