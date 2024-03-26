@@ -142,18 +142,26 @@ parfor k=1:3000
     re(fish) = 1;
     Ap = cell(1,5);
    
-    if ok ~= 0
+    if ok ~= 0  %Conserved webs
        Ap{1} = web; %store the web
        Ap{2} = re.*(X(4001,:)>0)'; %store the fish
        Ap{3} = X(4001,:); %biomass
        Ap{4} = T;  
        Ap{5} = X
-    else
+    else            %not conserved webs
         Ap{2} = fish;
         Ap{3} =  X(4001,:); %biomass
         Ap{4} = T;
-        %Ap{1} = tot;
+        %Ap{1} = Fail;
     end
     newUT4Fa4Fm4H12Hb2data{k} = Ap;
 end
+%%
+%This script in it's current format stores data about all the 3000 webs, whether they are not conserved
+%or not, which was important to check why some webs 
+%weren't conserved. For the remainder of the analysis (with fishing), only those webs
+%which were conserved were selected and stored under
+%newwebsUT4Fa4Fm4H12Hb2data.mat.
 save newUT4Fa4Fm4H12Hb2data.mat newUT4Fa4Fm4H17Hb5data -v7.3
+
+
