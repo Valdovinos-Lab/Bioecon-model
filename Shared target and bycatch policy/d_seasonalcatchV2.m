@@ -2,7 +2,7 @@
 
 %% Previous authors -------------------------------------------------------
 % Program by: Rosalyn Rael
-% Modified by Barbara Bauer
+% Modified by Paul Glaum
 
 %% Last update ------------------------------------------------------------
 % when: 7-22-2022
@@ -12,8 +12,6 @@
 
 %% Description ------------------------------------------------------------
 % Determine the temporal derivative of B and E
-% Called by:
-%   - webdriver.m
 % Inputs:
 %   - X: [B;E]
 %   - Btmin: Minimum biomasses (target) for fishing to be open
@@ -37,7 +35,7 @@
 %   - costratio: effective fishing costs/profits at t=0
 %   - Bext: extinctionthreshold
 % introduced hill and hsb for higher trophic levels
-%added respiration loses
+%added respiration loses and maintenence 
 
 %%
 function [dXdt]=d_seasonalcatchV2(t,X,N,de,x,y,r,K,e,h,c,Bs,web,target,bycatch,cat, cab,Bext,fa,fm)

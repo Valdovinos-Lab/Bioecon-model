@@ -1,11 +1,26 @@
+%%Commands to generate heatmaps for Figures 3 and 4
+% 1) Median fraction of Target surviving (yr 5 of fishing/penultimate fishing free year) 
+% 2) Median fraction of Bycatch surviving (yr 5 of fishing/penultimate fishing free year)
+% 3) Mean target extinctions (since fishing started)
+% 4) Mean bycatch extinctions (since fishing started)
+% 5) Mean secondary extinctions (since fishing started)
+% 6) Mean target yield (year 5 of fishing)
+% 7) Mean bycatch yield (year 5 of fishing)
+% 8) Mean profits (year 5 of fishing)
+% 9) average fishing year (year 5 of fishing)
+
 xvalues =  [0.15 0.3 0.45 0.6];
 yvalues = [0.6 0.45 0.3 0.15 0];
 data = zeros(5,4);
-%aj = policydata_vulnerablebycatch{5}; %3 - target, 4-bycatch, 5-sec
-aj = policydata_min{4}; %1 - median target, 2 - median bycatch, 8 - profits, 7/6 is bycatch/target yield
+
+%aj = policydata{7};  %random bycatch
+%aj2 = policydata{6};
+
+aj = policydata_min{7};  %vulnerable bycatch
+aj2 = policydata_min{6};
 for i=1:4
     for j=1:5
-        data(j,i) = aj(i,6-j);
+        data(j,i) = aj(i,6-j)/aj2(i,6-j); %calculating bycatch per unit target Fig 4F
     end
 end
 zvalues = data;
@@ -35,6 +50,6 @@ newYLabels{50} = 0;
 % Update the X-axis and Y-axis labels
 h.XDisplayLabels = newXLabels;
 h.YDisplayLabels = newYLabels;
-title('');
+title('Average bycatch/target (year 5)');
 xlabel('esc_{target}');
-ylabel('Average profits (year 5)');
+ylabel('esc_{bycatch}');
