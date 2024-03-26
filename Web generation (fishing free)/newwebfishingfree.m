@@ -1,41 +1,35 @@
- %% fishingfreewebdriverLocal.m
+ %% newwebfishingfree.m
 clear
-%% Author --------------------------------------------------------------
-% name: Valentin Cocco
-% mail: valentin.cocco@ens.fr
-% creation: 4-2-2018
+%% Previous Author --------------------------------------------------------------
+% when: 8-14-2019
+% who: Paul Glaum (prglaum@umich.edu)
+% what: used to run simulations without fishing effort for 500 different foodweb structures.
 
 %% Description ---------------------------------------------------------
-% Using the 1100-foodweb-structure stock, run simulations for 4000 timesteps without fishing effort locally.
+% Using the 3000-foodweb-structure stock, run simulations for 4000 timesteps without fishing effort locally.
 % This serves as an example of the ecological dynamics of the aquatic
 % networks without fishing. 
 
 % Calls:
 %   - webproperties.m
-%   - setup_default.m
-%   - differential.m
+%   - newsetup_default.m
+%   - newdifferentialresp.m
 
 %% Updates -----------------------------------------------------------------
-% when: 8-14-2019
-% who: Paul Glaum (prglaum@umich.edu)
-% what: used to run simulations without fishing effort for 500 different foodweb structures.
-%include respiration losses from Nadja Kath paper
-%% 1. UPLOADING OF THE NETWORK STRUCTURES
-
-
-
-%Change to Data folder to load the Food-Web networks 'Webs1100.mat' file
-
-cd('Data')
+% when: 7-7-2023
+% who: Appilineni Kushal (akushal@ucdavis.edu)
+% what: include maintenence respiration losses and 
+% assimilated carbon for production from Nadja Kath paper
+% also, set half saturation biomass and hill coefficient in this function directly
+%% 1. UPLOADING OF THE NETWORK STRUCTURE
 load('Webs3000.mat')
-cd('..')
-con=0.15; %(Berlow2009)
-err=0.025; %(Williams2000: 0.03)
+%con=0.15; %(Berlow2009)
+%err=0.025; %(Williams2000: 0.03)
 nSim=1; %number of simulations
 spe=30; %number of species
 t1=4000; %last timestep
 tspan=0:t1;
-Fail = cell(1,3000);
+Fail = cell(1,3000);   %storing the failed cases along with their index
 
 newUT4Fa4Fm4H12Hb2data = cell(1,3000);
 parfor k=1:3000
@@ -51,14 +45,14 @@ parfor k=1:3000
     [tmp, T]=webproperties(web);
     Fish=nnz(fish)/spe;
     properties=[tmp,Fish];
-   hill(T>4) = 1.2;   %upper consumers have higher hill and hsb
+   hill(T>4) = 1.2;   %upper consumers can have higher hill and hsb
     hsb(T>4) = 0.2;
     %% 3. SET THE BIOLOGICAL PARAMETERS
     [r,K,y,e,c,ax_ar,Z,po,Bext]=newsetup_default(web,fish);
     x=ax_ar.*(Z.^(-po.*(T-1)));
     fa = 0.4;
     fm = 0.4;
-    %% 4. ECONOMIC PARAMETERS
+    %% 4. ECONOMIC PARAMETERS (These are irrelevant for fishing free simulations)
     mu=0;
     co=1;
     ca=0;
@@ -67,7 +61,7 @@ parfor k=1:3000
     price='linear'; 
 
     %% 5. ATN MODEL
-    E0=[];
+    E0=[];  %efforts are 0, thus economic dynamics are irrelevant
     harv=false(spe,1);
     X0=[B0,E0];
     options=odeset('RelTol',10^-8,'AbsTol',10^-8);
@@ -162,4 +156,4 @@ parfor k=1:3000
     end
     newUT4Fa4Fm4H12Hb2data{k} = Ap;
 end
-%save newUT4Fa4Fm4H12Hb2data.mat newUT4Fa4Fm4H17Hb5data -v7.3
+save newUT4Fa4Fm4H12Hb2data.mat newUT4Fa4Fm4H17Hb5data -v7.3

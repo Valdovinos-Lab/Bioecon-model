@@ -5,9 +5,15 @@
 % mail: valentin.cocco@ens.fr
 % creation: 4-2-2018
 
+%% Modified by -------------------------------------------------------------
+% name: Appilineni Kushal
+% mail: akushal@ucdavis.edu 
+% creation: 7-7-2023
+
+
 %% Description --------------------------------------------------------
 % Using the niche model, create a large number of foodwebs represented by their adjacency matrix. The foodwebs are saved
-% in a MAT-file and in text files. The description of the foodweb also include initial biomass, fish identities.
+% in a MAT-file. The description of the foodweb also include initial biomass, fish identities.
 % Calls:
 %   - NicheModel
 % Inputs:
@@ -20,9 +26,6 @@
 %   - fish: logical vector indicating fish identity or not
 %   - B0: initial biomass
 
-%% Last update ---------------------------------------------------------
-% who: Paul Glaum (prglaum@umich.edu)
-% when: 8-14-2019
 
 %%
 n=3000; %number of networks to create
@@ -52,9 +55,9 @@ for i=1:n
 
     B0=0.05+0.95*rand(spe,1);
     
-    webs{i,1}=web;
-    webs{i,2}=fish;
-    webs{i,3}=B0;
+    webs{i,1}=web;   %stores the food web
+    webs{i,2}=fish;  %stores the fish species
+    webs{i,3}=B0;    %stores the initial biomasses
     
 %     % Save in a .csv file
 %     tableweb=array2table([web,fish,B0]);

@@ -1,20 +1,19 @@
 %% ATNmodel.m
 
 %% Previous authors -------------------------------------------------------
-% Program by: Rosalyn Rael
-% Modified by Barbara Bauer
+% Valentin Cocco
 
 %% Last update ------------------------------------------------------------
-% when: 3-6-2018
-% who: Valentin Cocco
-% mail: valentin.cocco@ens.fr
-% what: personal writing
-%added respiration loses
+% when: 7-7-2023
+% who: Appilineni Kushal
+% mail: akushal@ucdavis.edu
+% added respiration loses and assimilated carbon used for production based
+% on Nadja Kath 2018 work
 
 %% Description ------------------------------------------------------------
 % Determine the temporal derivative of B and E
 % Called by:
-%   - webdriver.m
+%   - newwebfishingfree.m
 % Inputs:
 %   - X: [B;E]
 %   - x: array of metabolic rates
@@ -32,6 +31,8 @@
 %   - a, b: price parameters
 %   - price: indicate the price model chosen : 'linear', 'isoelastic', 'nl-ni'
 %   - Bext: extinctionthreshold
+%   - fa: Fraction of assimilated carbonused for production
+%   - fm: Factor for maintenence respiration
 
 %%
 function [dXdt]=newdifferentialresp(t,X,x,y,r,K,e,h,c,Bs,nicheweb,harvest,mu,co,ca,a,b,price,Bext,fa,fm)
