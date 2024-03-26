@@ -1,3 +1,7 @@
+%% Calculates all observables for scenarios where bycatch is chosen randomly
+%Program by: Appilineni Kushal
+%date: 7-7-2023
+
 load('present.mat')
 %load("newwebsUT4Fa4Fm4H12Hb2data.mat")
 %load("cutoffvalues.mat")

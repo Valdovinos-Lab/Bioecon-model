@@ -1,12 +1,10 @@
-%function [Ap] = closureV1_kushal_clustercomputing(SimConsLin,k,N,qd,emu,costratio,cat,cab,cutofft,cutoffb,nharvest,nbycatch,inE,nseasons, hsb)
+
 function [Ap] = discreteeffortssharedtarget(Simhbdata,k,N,costratio,cat,cab,cutofft,cutoffb,nharvest,nbycatch,inE,nseasons,hill, hsb,fa,fm,target,bycatch)
 
 %% Author --------------------------------------------------------------
-% name: Paul Glaum
-% mail: prglaum@umich.edu
-% creation: 7-10-2018
-% modified by - Appilineni Kushal
+% name: - Appilineni Kushal
 % date - 7-25-2022
+% email - akushal@ucdavis.edu
 
 %% Assumptions
 % 1. Catchability of all harvested fishes are same
@@ -28,7 +26,7 @@ function [Ap] = discreteeffortssharedtarget(Simhbdata,k,N,costratio,cat,cab,cuto
 %simhbdata{4} = trophic level;
 
 %% Description ---------------------------------------------------------
-% 1. Run the second stage of simulation with Open Access fishing effort on the conserved foodwebs.
+% 1.  Run the second stage of simulation after fishing free stage on the conserved foodwebs..
 % 2. At the begining of fishing, a target and a bycatch is selected, TAC is calculated based on the biomasses from
 % fishing free times. Target is selected highest biomass, bycatch is
 % selected randomly
@@ -38,26 +36,8 @@ function [Ap] = discreteeffortssharedtarget(Simhbdata,k,N,costratio,cat,cab,cuto
 % conservation)
 % 5. Bycatch policy - fishery closure until next season
 %hill and hsb are given as input arrays
-% Calls:
-%   - webproperties.m
-%   - setup_default.m
-%   - differential.m
-%   - save_data4.m 
-% LinearWebDriverExample.m is set to use the linear pricing model described
-% in the manuscript. For interrested researchers, there are different 
-% options for this model. Options are: isoelastic (replace 'linear' with
-% 'isoelastic') and non-linear, isoelastic (replace 'linear' with 'nl-ni').
-
-%% LOAD DATA -------------------------------------------------------------------------------------
-%This loads a file that contains the conserved webs from the fishing free films. 
-%cd('Data')
-%load('SimConsLin.mat')   - dont need this because I've already loaded this
-%in the main file
-%cd('..')
-
 %baseline hsb and hill for species are 0.2 and 1.2
 %hsb and hill inputs tell the values for trophic levels >4
-
 %% SIMULATIONS -------------------------------------------------------------------------
 
     %% SETUP

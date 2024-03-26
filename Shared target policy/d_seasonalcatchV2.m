@@ -2,7 +2,7 @@
 
 %% Previous authors -------------------------------------------------------
 % Program by: Rosalyn Rael
-% Modified by Barbara Bauer
+% Modified by Paul Glaum
 
 %% Last update ------------------------------------------------------------
 % when: 7-22-2022
@@ -12,8 +12,6 @@
 
 %% Description ------------------------------------------------------------
 % Determine the temporal derivative of B and E
-% Called by:
-%   - webdriver.m
 % Inputs:
 %   - X: [B;E]
 %   - Btmin: Minimum biomasses (target) for fishing to be open
