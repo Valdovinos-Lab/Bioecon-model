@@ -161,7 +161,7 @@ end
 %or not, which was important to check why some webs 
 %weren't conserved. For the remainder of the analysis (with fishing), only those webs
 %which were conserved were selected and stored under
-%newwebsUT4Fa4Fm4H12Hb2data.mat.
+%foodwebs_1_400 (split in 12 files).
 save newUT4Fa4Fm4H12Hb2data.mat newUT4Fa4Fm4H17Hb5data -v7.3
 
 
