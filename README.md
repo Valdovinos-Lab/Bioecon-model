@@ -1,5 +1,7 @@
 # Bioecon_model
 
+All files and Matlab codes to our model is given here:
+
 There are 2 aspects to our model, description of codes for each of them are given separately: 
 
 1)	Web generation and Fishing free part – where we generate the webs using Niche model, run it for 4000 time steps with no fishing.
@@ -22,7 +24,7 @@ These webs are then run for 4000 time steps with no fishing. We do that by using
 
 4)	isConnected.m – Checks if the resulting foodweb after 4000 timesteps is still connected.
 
-We use this to find out how many of those initially generated foodwebs (from Webs3000.mat) are “conserved”, after 4000 timesteps. The conserved foodwebs are stored in newwebsUT4Fa4Fm4H12Hb2data.mat
+We use this to find out how many of those initially generated foodwebs (from Webs3000.mat) are “conserved”, after 4000 timesteps. The conserved foodwebs are stored in newwebsUT4Fa4Fm4H12Hb2data.mat. We use the first 400 food webs for our analysis.
 
 # Fishing under a certain management setting
 
@@ -63,8 +65,6 @@ We considered 3 scenarios i.e. Open Access, Shared target policy and Shared targ
 17)	target – index indicating the target species, among all species in food web
 
 18)	bycatch – index indicating the bycatch species, among all species in food web
-
-
 Each of them also take inputs, the following functions:
 
 1)	newsetup_default.m – Takes foodweb and fish labels, initializes all the parameters (based on Table 1 in the manuscript).
@@ -78,7 +78,9 @@ dataforrandomtarget.mat – gives the target and bycatch indexes for each foodwe
 
 minbynetworkindex.mat – which indexes (among all possible target bycatch combinations from dataforrandomtarget.mat), correspond to most vulnerable bycatch.
 
-After the time series for each web is generated, the properties of each web i.e. target survivability, bycatch survivability, biomass change, target extinctions, bycatch extinctions, secondary extinctions, target yield, bycatch yield, profits and fishing season was calculated using the following commands:
+Each of the timeseries generation functions - discreteeffortsopenaccess.m, discreteeffortssharedtarget.m and discreteeffortssharedtargetbycatchquota.m – returns the timeseries for 5 years with fishing (1826 time steps). First 30 columns refer to the biomasses of the species in the foodweb, 31 - 35 refers to the effort of the 5 fishers, 36 - 40 are the cummulative target yield of each fisher (in order i.e. 36 refers to the cumulative target yield (over time) of the fisher who’s efforts are given by column 31 and so on), 41 – 45 are the cumulative bycatch yield of each fisher (in order).
+
+After the time series for each of the 400 webs is generated (for both all both scenarios - random bycatch and vulnerable bycatch) , the properties of each web i.e. target survivability, bycatch survivability, biomass change, target extinctions, bycatch extinctions, secondary extinctions, target yield, bycatch yield, profits and fishing season was calculated using the following commands:
 
 1.	simulationresults_survextinct.m – Calculated mean, median and mode for all the above observables for the scenario where bycatch is chosen randomly. The output of these are stored in the form of newmedian_openaccess_data.mat (for open access time series), newmedian_survST_cutofft (when only Shared target policy is in place) and newmedian_survSTB_cutofft_cutoffb (when both Shared target and bycatch policy is in place).
 
@@ -111,5 +113,7 @@ E.g. newmedian_policydata_randombycatch.mat{5} would give the mean secondary ext
 Corresponding data for open access was stored in policy_openaccessdata_randombycatch.mat and policy_openaccessdata_vulnerablebycatch.mat
 
 heatmapcommands.m was used to interpolate the policydata and plot heatmaps Figure 3 and 4.
+ 
+
 
  
