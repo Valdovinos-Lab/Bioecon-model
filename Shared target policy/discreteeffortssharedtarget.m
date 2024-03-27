@@ -24,6 +24,7 @@ function [Ap] = discreteeffortssharedtarget(Simhbdata,k,N,costratio,cat,cab,cuto
 %simhbdata{2} = fish;
 %simhbdata{3} = biomass after fishing free steady state;
 %simhbdata{4} = trophic level;
+%simhbdata{5} = time series of the fishing free period. that part of data is not used in this code;
 
 %% Description ---------------------------------------------------------
 % 1.  Run the second stage of simulation after fishing free stage on the conserved foodwebs..
