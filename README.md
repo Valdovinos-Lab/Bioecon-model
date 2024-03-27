@@ -26,7 +26,7 @@ These webs are then run for 4000 time steps with no fishing. We do that by using
 
 4)	isConnected.m – Checks if the resulting foodweb after 4000 timesteps is still connected.
 
-We use this to find out how many of those initially generated foodwebs (from Webs3000.mat) are “conserved”, after 4000 timesteps. The conserved foodwebs are stored in newwebsUT4Fa4Fm4H12Hb2data.mat. We use the first 400 food webs for our analysis.
+We use this to find out how many of those initially generated foodwebs (from Webs3000.mat) are “conserved”, after 4000 timesteps. The conserved foodwebs are stored in foodwebs_1_400 (split in 12 files, found in the Folder - Web generation (fishing free)).
 
 # Fishing under a certain management setting
 
