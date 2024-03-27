@@ -1,4 +1,6 @@
-# Bioecon_model
+# Bioecon model 
+
+Created by Appilineni Kushal (akushal@ucdavis.edu)
 
 All files and Matlab codes to our model is given here:
 
