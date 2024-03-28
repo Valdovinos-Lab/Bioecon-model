@@ -2,6 +2,8 @@
 
 Created by Appilineni Kushal (akushal@ucdavis.edu)
 
+[![DOI](https://zenodo.org/badge/757757339.svg)](https://zenodo.org/doi/10.5281/zenodo.10891491)
+
 All files and Matlab codes to our model is given here:
 
 There are 2 aspects to our model, description of codes for each of them are given separately: 
