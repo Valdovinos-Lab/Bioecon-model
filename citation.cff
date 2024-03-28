@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Kushal"
+  given-names: "Appilineni"
+  orcid: "https://orcid.org/0009-0006-7152-2289"
+
+title: "Matlab codes and data for Bioecon model"
+version: 0.1.0
+doi: 10.5281/zenodo.10891492
+date-released: 2024-03-27
+url: "https://zenodo.org/doi/10.5281/zenodo.10891491"
